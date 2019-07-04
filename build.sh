@@ -1,1 +1,1 @@
-docker build -t syncthing:latest .
+sudo docker build -t syncthing:latest .

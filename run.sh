@@ -1,17 +1,8 @@
 docker rm -f syncthing
-docker rm -f bud
 
 docker run -d --restart=always \
-  -v /srv/sync:/srv/data \
-  -v /srv/syncthing:/srv/config \
-  -p 22000:22000  -p 21027:21027/udp \
+  -v /srv/sync:/mnt/tsp/pi_1/data/personal \
+  -v /srv/syncthing:/srv/config/syncthing \
+  -p 22000:22000  -p 21027:21027/udp -p 8384:8384 \
   --name syncthing \
-  joeybaker/syncthing
-
-sleep 1
-docker run -d --restart=always \
-  -v /srv/bud:/data \
-  -p 443:443 \
-  --name bud \
-  --link syncthing:backend \
-  joeybaker/bud-tls
+  syncthing

@@ -37,4 +37,4 @@ RUN chmod 770 /srv/start.sh
 
 ENV UID=1027
 
-ENTRYPOINT ["/bin/bash"]
+ENTRYPOINT ["/srv/start.sh"]

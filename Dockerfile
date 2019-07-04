@@ -21,10 +21,10 @@ RUN gpg --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys B42F6819007F00F88E
 # get syncthing
 WORKDIR /srv
 RUN useradd --no-create-home -g users syncthing
-RUN curl -L -o syncthing.tar.gz "https://github.com/syncthing/syncthing/releases/download/v$SYNCTHING_VERSION/syncthing-linux-amd64-v$SYNCTHING_VERSION.tar.gz" \
+RUN curl -L -o syncthing.tar.gz "https://github.com/syncthing/syncthing/releases/download/v$SYNCTHING_VERSION/syncthing-linux-arm-v$SYNCTHING_VERSION.tar.gz" \
   && tar -xzvf syncthing.tar.gz \
   && rm -f syncthing.tar.gz \
-  && mv syncthing-linux-amd64-v* syncthing \
+  && mv syncthing-linux-arm-v* syncthing \
   && rm -rf syncthing/etc \
   && rm -rf syncthing/*.pdf \
   && mkdir -p /srv/config \
@@ -37,4 +37,4 @@ RUN chmod 770 /srv/start.sh
 
 ENV UID=1027
 
-ENTRYPOINT ["/srv/start.sh"]
+ENTRYPOINT ["/bin/bash"]

@@ -4,7 +4,25 @@ Run [syncthing](https://syncthing.net) from a docker container
 
 ## Install
 
+```sh
+touch sdd/boot/ssh
+touch sdd/boot/wpa_supplicant.conf
+```
+
+```
+country=US
+ctrl_interface=DIR=/var/run/wpa_supplicant GROUP=netdev
+update_config=1
+
+network={
+ssid="WIFI_SSID"
+scan_ssid=1
+psk="WIFI_PASSWORD"
+key_mgmt=WPA-PSK
+}
+
 - ssh pi@ip
+raspberry
 
 ```sh
 passwd
